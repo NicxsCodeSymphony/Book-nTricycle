@@ -1,0 +1,101 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--main-font);
+    text-align: center;
+    overflow: hidden;
+}
+
+.appBar{
+    height: 10vh;
+    background-color: var(--big-letter);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    color: #fff
+}
+
+.appBar h4{
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.main-body{
+    height: 90vh;
+    padding: 0 20px; 
+}
+
+.company-name{
+    margin-top: 30px;
+}
+
+
+.heading span, p{
+    color: #000;
+    opacity: 0.5;
+    font-size: 12px;    
+}
+
+.design{
+    margin-top: 40px;
+}
+
+.label{
+    position: relative;
+    bottom: 4px;
+}
+
+h4{
+    font-weight: 200;
+}
+
+h1{
+    font-size: 16px;
+}
+
+.bold{
+    font-weight: 900;
+}
+
+.information{
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 29px;
+    height: 15vh;
+}
+
+
+.information p{
+    opacity:0.8;
+}
+
+.information span{
+    float: right;
+    text-align: left;
+    opacity:0.8;
+}
+
+.description, .description span{
+    font-size: 15px;
+    opacity: 1;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+
+
+button{
+    margin-top: 30px;
+    width: 80%;
+    padding: 10px 0;
+    border: none;
+    outline: none;
+    background-color: var(--big-letter);
+    border-radius: 5px;
+    color: #fff;
+}

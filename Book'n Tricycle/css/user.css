@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--main-font);
+    background-color: #f3f4f6;
+    max-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.appBar{
+    height: 10vh;
+    background-color: var(--big-letter);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    color: #fff
+}
+
+.appBar h4{
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.main-body{
+    height: 90vh;
+    padding: 0 20px; 
+    margin-top: 30px;
+}
+
+.setting-container{
+    background-color: #fff;
+    height: 6vh;
+    display: grid;
+    align-content: center;
+    padding: 0 10px;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+
+span{
+    float: right;
+}
+
+i{
+    margin-right: 10px;
+    padding-left: 10px;
+}

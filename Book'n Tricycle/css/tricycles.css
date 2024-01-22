@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: var(--main-font);
+    background-color: #f3f4f6;
+    max-height: 500vh;
+    height: 473vh;
+}
+
+.appBar{
+    height: 10vh;
+    background-color: var(--big-letter);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    color: #fff
+}
+
+.appBar h4{
+    margin-left: 15px;
+    font-weight: 600;
+}
+
+.main-body{
+    height: 90vh;
+    padding: 0 20px; 
+}
+
+.date-container{
+    background-color: #fff;
+    height: 8vh;
+    margin-top: 15px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.sign{
+    text-align: center;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.pick-tricycle-container{
+    height: 25vh;
+    background-color: #fff;
+    padding: 10px 25px 5px 5px;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.pick-heading{
+    display: flex;
+    justify-content: space-between;
+}
+
+.status{
+    color: #fff;
+    background-color: var(--big-letter);
+    text-align: center;
+    font-size: 14px;
+    padding: 3px 10px;
+}
+
+.route{
+    /* border: 1px #000 solid; */
+    margin-top: 20px;
+    height: 10vh;
+    display: grid;
+    grid-template-columns:repeat(3, 2fr)
+}
+
+.route > div{
+    /* display: grid; */
+    align-items: center;
+    justify-content: center;
+}
+
+.route > div:first-child{
+    font-size: 14px;
+    margin-top: 15%;
+    margin-left: 12%;
+    text-align: left;
+}
+
+.route > div:first-child span, .route > div:last-child span{
+    font-size: 10px;
+    position: relative;
+}
+
+.route > div:last-child{
+    text-align: right;
+    margin-top: 15%;
+    font-size: 14px;
+}
+
+.route > div:nth-child(2){
+    text-align: center;
+}
+
+.time{
+    background-color: var(--big-letter);
+    padding: 0 5px;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.route > div:nth-child(2) span{
+    font-size: 10px;
+    color: #000;
+    opacity: 0.5;
+}
+
+.route-footer{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    height: 20%;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-top: 15px;
+}
