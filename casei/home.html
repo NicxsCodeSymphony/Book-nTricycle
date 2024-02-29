@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/home.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    
+    <div class="heading">
+        <div class="nav">
+            <h3>Home <span> <a href="user.html"><i class="fa-regular fa-square-caret-down"></i></a></span></h3>
+        </div>
+    </div>
+
+    <div class="location-container">
+
+        <div class="input-container">
+            <input type="text" value="CTU Daanbantayan"> <br>
+            <i style="position: relative; bottom: 60px; left: 30px; font-size: 22px; color: #f30e5ac0" class="fa-solid fa-location-dot"></i>
+            <input type="text" style="margin-right: 45px;" id="clickPlace" placeholder="Click to add Place" readonly>
+            <i style="position: relative; bottom: 37px; left: 30px; font-size: 22px; color: #f30e5ac0" class="fa-solid fa-location-crosshairs"></i>
+            <input type="hidden" id="fee">
+        </div>
+
+        
+
+    </div>
+
+    <div class="date-container">
+        <div class="date"><span class="day">14, Oct</span><p class="year">2024</p>
+            <input type="hidden" id="fullDate">
+            <i style="position: absolute; right: 30px; color: #c0c0c0;" class="fa-solid fa-arrow-right"></i>
+        </div>
+        <div class="time">
+            <input type="hidden" id="time1">
+            <span class="timeValue">1:30</span><p class="am"></p>
+            <i style="position: absolute; right: 40px; color: #c0c0c0;" class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+
+
+    <div class="passenger-container">
+        <i id="minus" class="fa-solid fa-minus"></i>
+        <span id="count">1</span>
+        <input type="hidden" id="countInt">
+        <i id="plus" class="fa-solid fa-plus"></i>
+    </div>
+
+    <input type="button" id="continue" value="Continue">
+
+    <div class="destinationPopup">
+        <div class="place-wrapper">
+            <h1>Select Place</h1>
+
+           <div class="place-container">
+
+            <div class="select-place" onclick="selectPlace('Bagay', 30)">
+                <p>Bagay</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Bakhawan', 30)">
+                <p>Bakhawan</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Bateria', 30)">
+                <p>Bateria</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Bitoon', 45)">
+                <p>Bitoon</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Calape', 35)">
+                <p>Calape</p>
+                <p>₱ 35.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Dalingding', 55)">
+                <p>Dalingding</p>
+                <p>₱ 55.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Lanao', 30)">
+                <p>Lanao</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Malbago', 45)">
+                <p>Malbago</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Malingin', 30)">
+                <p>Malingin</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Maya', 20)">
+                <p>Maya</p>
+                <p>₱ 20.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Pajo', 25)">
+                <p>Pajo</p>
+                <p>₱ 25.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Paypay', 30)">
+                <p>Paypay</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Talisay', 30)">
+                <p>Talisay</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Tapilon', 15)">
+                <p>Tapilon</p>
+                <p>₱ 15.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Tinubdan', 30)">
+                <p>Tinubdan</p>
+                <p>₱ 30.00 </p>
+            </div>
+            
+            <div class="select-place" onclick="selectPlace('Tominjao', 45)">
+                <p>Tominjao</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+
+           </div>
+
+        </div>
+    </div>
+
+    <div class="popup">
+        <div class="popup-wrapper">
+        <h1>Select a Date</h1>
+        <input type="date" id="date">
+        <input type="button" value="Save" id="save">
+    </div>
+    </div>
+
+    <div class="popup1">
+        <div class="popup-wrapper">
+        <h1>Select a Time</h1>
+        <input type="time" id="time">
+        <input type="button" value="Save" id="saveTime">
+    </div>
+    </div>
+    
+
+
+    <script src="js/home.js"></script>
+
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js"; // Change the import here
+
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyB7y1TDVQVpffWpMXs8EgnEnM-CyooBIVU",
+  authDomain: "tricycle-reservation.firebaseapp.com",
+  databaseURL: "https://tricycle-reservation-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "tricycle-reservation",
+  storageBucket: "tricycle-reservation.appspot.com",
+  messagingSenderId: "1091927812965",
+  appId: "1:1091927812965:web:917f3054a16a4102eacf8c"
+};
+
+
+const app = initializeApp(firebaseConfig);
+        const db = getDatabase();
+        const auth = getAuth(app);
+
+        const continueCta = document.getElementById('continue');
+        const place = document.getElementById('clickPlace');
+        const fee = document.getElementById('fee');
+        const fullDate = document.getElementById('fullDate');
+        const time = document.getElementById('time1');
+        const passengerCount = document.getElementById('countInt');
+
+        continueCta.addEventListener('click', () => {
+            let fullName = "Casei";
+            let user = auth.currentUser;
+
+            if (user) {
+                let uid = user.uid;
+                set(ref(db, 'PlaceToGo/'), {
+                    accountName: fullName,
+                    place: place.value,
+                    initialPayment: fee.value,
+                    date: fullDate.value,
+                    time: time.value,
+                    passengers: passengerCount.value,
+                    uid: uid
+                }).then(() => {
+                    alert("DATA ADDED SUCCESSFULLY");
+                    window.location.href = "passenger.html";
+                }).catch(() => {
+                    alert("THERE WAS AN ERROR ADDING DATA");
+                });
+            } else {
+                alert("User is not logged in.");
+            }
+        });
+    </script>
+
+</body>
+</html>

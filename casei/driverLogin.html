@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="css/driverLogin.css">
+</head>
+<body>
+
+<div class="login-container">
+    <form id="loginForm">
+        <label for="email">Email:</label>
+        <input type="email" id="contact" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" id="login">Login</button>
+    </form>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyB7y1TDVQVpffWpMXs8EgnEnM-CyooBIVU",
+    authDomain: "tricycle-reservation.firebaseapp.com",
+    databaseURL: "https://tricycle-reservation-default-rtdb.asia-southeast1.firebasedatabase.app",
+    projectId: "tricycle-reservation",
+    storageBucket: "tricycle-reservation.appspot.com",
+    messagingSenderId: "1091927812965",
+    appId: "1:1091927812965:web:917f3054a16a4102eacf8c"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth();
+const database = getDatabase(app); // Initialize the Realtime Database
+
+function $(id){
+    return document.querySelector(id);
+}
+
+$("#login").addEventListener("click", () => {
+    const email = $("#contact").value;
+    const password = $("#password").value;
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then(async (userCredential) => {
+            const uid = userCredential.user.uid;
+
+            // Retrieve the driver's name from the database
+            const driversRef = ref(database, 'drivers');
+            const driverRef = child(driversRef, uid);
+            const snapshot = await get(driverRef);
+            const driverName = snapshot.val().name;
+            const contact = snapshot.val().contact;
+            const age = snapshot.val().age;
+            const gender = snapshot.val().gender;
+
+            // Pass the driver's name to the next page
+            alert('Successfully Logged in as ' + driverName);
+            window.location.href = `driver.html?name=${encodeURIComponent(driverName)}
+            &gender=${encodeURIComponent(gender)}&contact=${encodeURIComponent(contact)}
+            &age=${encodeURIComponent(age)}&uid=${encodeURIComponent(uid)}`;
+        })
+        .catch((error) => {
+            // Handle login errors
+            console.error("Login error:", error.code, error.message);
+            // Display an error message to the user
+        });
+});
+
+// ...
+
+</script>
+
+</body>
+</html>

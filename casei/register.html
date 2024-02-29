@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/register.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div class="register-container">
+        <h1>Register</h1>
+        <form id="registerForm">
+            <input type="text" placeholder="Full Name" id="fullName">
+            <input type="email" placeholder="Email" id="email">
+            <input type="password" placeholder="Password" id="password">
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyB7y1TDVQVpffWpMXs8EgnEnM-CyooBIVU",
+  authDomain: "tricycle-reservation.firebaseapp.com",
+  databaseURL: "https://tricycle-reservation-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "tricycle-reservation",
+  storageBucket: "tricycle-reservation.appspot.com",
+  messagingSenderId: "1091927812965",
+  appId: "1:1091927812965:web:917f3054a16a4102eacf8c"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getDatabase();
+
+const registerForm = document.getElementById('registerForm');
+
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const fullName = document.getElementById('fullName').value;
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    createUserWithEmailAndPassword(getAuth(app), email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            set(ref(db, 'users/' + user.uid), {
+                fullName: fullName,
+                email: email
+            })
+            .then(() => {
+                alert("Registration successful");
+                window.location.href = "login.html";
+            })
+            .catch((error) => {
+                alert("Registration failed: " + error.message);
+            });
+        })
+        .catch((error) => {
+            alert("Registration failed: " + error.message);
+        });
+});
+
+    </script>
+</body>
+</html>

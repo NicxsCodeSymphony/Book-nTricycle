@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver</title>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/driver.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+
+    <div class="heading">
+        <div class="nav">
+            <p><i class="fa-solid fa-bars"></i></p>
+            <p class="tagline">Welcome</p>
+            <img src="" alt="">
+        </div>
+    </div>
+
+    <div class="welcome-container">
+        <p class>Hi <span id="name"></span></p>
+        <h3 class="welcome-text">Good Morning</h3>
+        <select name="" id="status">
+            <option value="Active">Active</option>
+            <option value="Not Active">Not Active</option>
+        </select>
+    </div>
+
+    <!-- <div class="section">
+        <h3>My Bookings</h3>
+
+        <div class="box-container">
+
+            <div class="box">
+                <p>For</p>
+                <h2>Bookings</h2>
+                <h5 class="total">₱ 225</h5>
+                <button>See Details</button>
+            </div>
+
+            <div class="box">
+                <p>For</p>
+                <h2>Transaction</h2>
+                <h5 class="total">₱ 1,250</h5>
+                <button>See Details</button>
+            </div> -->
+            <div class="destination">
+                <h1>Your Destination</h1>
+                <input id="chooseDestination" type="button" value="Click here to choose route">
+                <input type="hidden" id="fee">
+                <label id="time">Departure Time</label><input id="times" type="time">
+                <label id="time">Available Seats</label><input id="seats" type="number">
+                <input type="hidden" id="contact">
+                <input type="hidden" id="age">
+                <input type="hidden" id="uid">
+                <input type="hidden" id="gender">
+                <input type="button" id="set" value="set">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="destinationPopup">
+        <div class="place-wrapper">
+            <h1>Select Place</h1>
+
+           <div class="place-container">
+
+            <div class="select-place" onclick="selectPlace('Bagay', 30)">
+                <p>Bagay</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Bakhawan', 30)">
+                <p>Bakhawan</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Bateria', 30)">
+                <p>Bateria</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Bitoon', 45)">
+                <p>Bitoon</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Calape', 35)">
+                <p>Calape</p>
+                <p>₱ 35.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Dalingding', 55)">
+                <p>Dalingding</p>
+                <p>₱ 55.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Lanao', 30)">
+                <p>Lanao</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Malbago', 45)">
+                <p>Malbago</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Malingin', 30)">
+                <p>Malingin</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Maya', 20)">
+                <p>Maya</p>
+                <p>₱ 20.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Pajo', 25)">
+                <p>Pajo</p>
+                <p>₱ 25.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Paypay', 30)">
+                <p>Paypay</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Talisay', 30)">
+                <p>Talisay</p>
+                <p>₱ 30.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Tapilon', 15)">
+                <p>Tapilon</p>
+                <p>₱ 15.00 </p>
+            </div>
+
+            <div class="select-place" onclick="selectPlace('Tinubdan', 30)">
+                <p>Tinubdan</p>
+                <p>₱ 30.00 </p>
+            </div>
+            
+            <div class="select-place" onclick="selectPlace('Tominjao', 45)">
+                <p>Tominjao</p>
+                <p>₱ 45.00 </p>
+            </div>
+
+
+           </div>
+
+        </div>
+    </div>
+
+    <script>
+
+        function $(id){
+             return document.querySelector(id);
+        }
+        
+        function selectPlace(place, fee){
+            $('#chooseDestination').value = place;
+            $('#fee').value = fee;
+            $('.place-wrapper').style.display = 'none';
+        }
+    </script>
+
+
+    <script type="module">
+ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+    import { getDatabase, ref, set, push, get, child } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB7y1TDVQVpffWpMXs8EgnEnM-CyooBIVU",
+            authDomain: "tricycle-reservation.firebaseapp.com",
+            databaseURL: "https://tricycle-reservation-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tricycle-reservation",
+            storageBucket: "tricycle-reservation.appspot.com",
+            messagingSenderId: "1091927812965",
+            appId: "1:1091927812965:web:917f3054a16a4102eacf8c"
+        };
+
+      // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getDatabase(app);
+
+    function $(id) {
+        return document.querySelector(id);
+    }
+
+    // Function to update driver information in the "drivers" node
+    async function updateDriverInfo(uid, driverData) {
+        const driverRef = ref(db, `drivers/${uid}`);
+        await set(driverRef, driverData);
+    }
+
+    // Function to display route data
+    function displayRouteData(routeData) {
+        $('#chooseDestination').value = routeData.destination;
+        $('#fee').value = routeData.fee;
+        $('#times').value = routeData.time;
+        $('#seats').value = routeData.seats;
+        $('#status').value = routeData.status;
+    }
+
+    // Function to handle setting the destination
+    $('#set').addEventListener('click', async () => {
+        try {
+            const user = auth.currentUser;
+            if (user) {
+                const driverName = user.displayName;
+                const uid = user.uid;
+
+                const selectedDestination = $('#chooseDestination').value;
+                const fee = $('#fee').value;
+                const times = $('#times').value;
+                const seats = $('#seats').value;
+                const status = $('#status').value;
+                let seat = 0;
+            if (seats == 6) {
+                seat = 1;
+            } else if (seats == 5) {
+                seat = 2;
+            } else if (seats == 4) {
+                seat = 3;
+            } else if (seats == 3) {
+                seat = 4;
+            } else if (seats == 2) {
+                seat = 5;
+            } else if (seats == 1) {
+                seat = 6;
+            }
+
+                if (selectedDestination) {
+                    const driverName = $('#name').innerText;
+                    
+                    const newRouteRef = push(ref(db,));
+                    const routeData = {
+                        name: driverName,
+                        destination: selectedDestination,
+                        fee: fee,
+                        time: times,
+                        seats: seat,
+                        status: status,
+                        age: $('#age').value,
+                        contact: $('#contact').value,
+                        gender: $('#gender').value,
+                        uid: $('#uid').value
+                    };
+                    await updateDriverInfo(uid, routeData);
+
+                    displayRouteData(routeData);
+                    alert('Destination set successfully');
+                } else {
+                    alert('Please choose a destination first');
+                }
+            } else {
+                alert('User not authenticated');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred');
+        }
+    });
+
+    // Function to handle showing the place selection popup
+    $('#chooseDestination').addEventListener('click', () => {
+        $('.place-wrapper').style.display = 'block';
+    });
+
+    // Function to handle selecting a place and updating the UI
+    function selectPlace(place, fee) {
+        $('#chooseDestination').value = place;
+        $('#fee').value = fee;
+        $('.place-wrapper').style.display = 'none';
+    }
+
+    // ... (Your other scripts remain unchanged) ...
+
+    // Automatically update the driver information when the user is authenticated
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // Retrieve driver's UID from authentication
+            const uid = user.uid;
+
+            // Retrieve data from the database and display it
+            (async () => {
+                const driverDataSnapshot = await get(ref(db, `drivers/${uid}`));
+                const driverData = driverDataSnapshot.val();
+
+                if (driverData) {
+                    displayRouteData(driverData);
+                }
+            })();
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        // Retrieve driver's name from query parameters
+        const params = new URLSearchParams(window.location.search);
+        const driverName = params.get('name');
+        const contact = params.get('contact');
+        const age = params.get('age');
+        const gender = params.get('gender');
+        const uid = params.get('uid');
+
+        $('#name').innerText = driverName;
+        $('#contact').value = contact;
+        $('#age').value = age;
+        $('#gender').value = gender;
+        $('#uid').value = uid;
+
+    });
+
+    $('#chooseDestination').addEventListener('click', () => {
+        $('.place-wrapper').style.display = 'block';
+    });
+    </script>
+
+    
+</body>
+</html>

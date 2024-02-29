@@ -1,0 +1,219 @@
+*{
+    overflow-y: auto;
+}
+
+body{
+    font-family: var(--main-font);
+    background: #f3efef;
+    overflow: hidden;
+}
+
+.heading{
+    height: 25vh;
+    background-color: var(--big-letter);    
+}
+
+
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding-left: 30px;
+    padding-top: 40px;
+    color: var(--text-color);
+    font-size: 14px;
+    width: 90%;
+   
+}
+
+.nav h3{
+    width: 100%;
+}
+
+.nav h3 span{
+   float: right;
+}
+
+.location-container{
+    border-radius: 5px;
+    width: 90%;
+    height: 30%;
+    position: absolute;
+    top: 15vh;
+    left: 20px;
+    background: #fff;
+}
+
+.input-container{
+    width: 100%;
+    margin: 20px;
+    /* background: #000; */
+    padding-top: 10px;
+    height: 80%;
+}
+
+.input-container input{
+    border: none;
+    /* border: 1px #000 solid; */
+    width: 80%;
+    height: 50px;
+    margin-top: 10px;
+    padding-left: 60px;
+    font-family: var(--main-font);
+    font-size: 20px;
+    position: relative;
+}
+
+.date-container{
+    height: 18%;
+    width: 90%;
+    background-color: var(--text-color);
+    margin: 0 20px;
+    margin-top: 23vh;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+}
+
+.date{
+    display: flex;
+    justify-content: center;
+    flex-direction: column  ;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    position: relative;
+}
+
+
+.date span{
+    color: var(--big-letter);
+    font-weight: 800;
+}
+
+
+.time{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.time span{
+    color: var(--big-letter);
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.passenger-container{
+    height: 10%;
+    width: 90%;
+    background-color: var(--text-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+    margin: 25px 20px;
+}
+
+input[type="button"]{
+    margin: 0 20px;
+    margin-top: 40px;
+    background-color: var(--big-letter);
+    height: 55px;
+    width: 90%;
+    border: none;
+    border-radius: 5px;
+    color: var(--text-color);
+    font-weight: 200;
+    font-size: 18px;
+}
+
+
+
+/* POPUP */
+
+.destination-popup{
+    height: 100%;
+    width: 100%;
+}
+
+.place-wrapper{
+    height: 80%;
+    width: 100%;
+    background: green;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 15px;
+}
+
+.place-wrapper h1{
+    font-size: 25px;
+}
+
+.place-container{
+    margin-top: 20px;
+    overflow: auto;
+}
+
+.select-place{
+    border: 1px #000 solid;
+    height: 8vh;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.popup{
+    height: 100%;
+    width: 100%;
+}
+
+.popup1{
+    height: 100%;
+    width: 100%;
+}
+
+.popup-wrapper{
+    height: 50%;
+    width: 80%;
+    background-color: green;
+    position: fixed;
+    left: 10%;
+    top: 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 14px;
+}
+
+.popup-wrapper input[type='date']{
+    margin-top: 30px;
+    padding: 8px 20px;
+}
+
+.popup-wrapper input[type='time']{
+    margin-top: 30px;
+    padding: 8px 20px;
+}
+
+.popup-wrapper input[type='button']{
+    font-size: 14px;
+    height: 40px;
+    width: 50%;
+}
+
+
+a{
+    color: #fff;
+}
+
+a:visited{
+    color: #fff;
+}

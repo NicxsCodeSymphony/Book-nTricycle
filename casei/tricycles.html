@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="css/root.css">
+    <link rel="stylesheet" href="css/tricycles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+    <div class="appBar">
+        <i class="fa-solid fa-arrow-left"></i>
+        <h4>Tricycles</h4>
+        <i style="margin-left: 65%;" class="fa-solid fa-filter"></i>
+    </div>
+
+    <div class="main-body">
+        <input type="hidden" id="place">
+        <div class="date-container">January 23, 2024</div>
+
+        <p class="sign">Available Tricycles</p>
+
+        <div id="tricycle-container"></div>
+    </div>
+
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+        import { getDatabase, ref, onValue, set } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-database.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyB7y1TDVQVpffWpMXs8EgnEnM-CyooBIVU",
+            authDomain: "tricycle-reservation.firebaseapp.com",
+            databaseURL: "https://tricycle-reservation-default-rtdb.asia-southeast1.firebasedatabase.app",
+            projectId: "tricycle-reservation",
+            storageBucket: "tricycle-reservation.appspot.com",
+            messagingSenderId: "1091927812965",
+            appId: "1:1091927812965:web:917f3054a16a4102eacf8c"
+        };
+
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const routeRef = ref(db, 'drivers');
+        const passengerRef = ref(db, 'PlaceToGo');
+
+        function $(id){
+            return document.querySelector(id);
+        }
+
+        onValue(passengerRef, (snapshot) => {
+            const data = snapshot.val().place;
+            console.log('Data from: ', data);
+            $('#place').value = data;
+        })
+
+ // Function to create a new tricycle div
+function createTricycleDiv(data) {
+    // Create a new div element
+    const tricycleDiv = document.createElement('div');
+    tricycleDiv.className = 'pick-tricycle-container';
+
+    // Set inner HTML content based on the data
+    tricycleDiv.innerHTML = `
+        <div class="pick-heading">
+            <p class="status">${data.status}</p>
+            <p id="fee">₱ ${data.fee}</p>
+        </div>
+        <div class="route">
+            <div>
+                <p>CTU</p>
+                <span>From</span>
+            </div>
+            <div>
+                <span>Departure</span>
+                <p class="time">${data.time}</p>
+                <span>Time</span>
+            </div>
+            <div>
+                <p id="destinationTo">${data.destination}</p>
+                <span>To</span>
+            </div>
+        </div>
+        <div class="route-footer">
+            <p class="driver-name">Driver: <span id="driver">${data.name}</span></p>
+            <p>Seats: <span>${data.seats}</span>/6</p>
+        </div>
+    `;
+
+    // Add click event listener to the tricycle div
+    tricycleDiv.addEventListener('click', () => {
+        // Get the data from the clicked div
+        const destination = data.destination;
+        const status = data.status;
+        const fee = data.fee;
+        const time = data.time;
+        const name = data.name;
+        const seats = data.seats;
+
+        // Insert the data into the PlaceToGo node in Firebase
+        const newPlaceRef = ref(db, 'PlaceToGo/tricycle');
+        set(newPlaceRef, {
+            destination: destination,
+            status: status,
+            fee: fee,
+            time: time,
+            name: name,
+            seats: seats
+        }).then(() => {
+            console.log('Data inserted successfully');
+        }).catch((error) => {
+            console.error('Error inserting data:', error);
+        });
+    });
+
+    return tricycleDiv;
+}
+
+// Variable to hold the tricycle container
+const tricycleContainer = document.getElementById('tricycle-container');
+
+// Function to update the HTML content based on the data from Firebase
+function updateDestinationInfo(snapshot) {
+    // Clear existing content in the container
+    tricycleContainer.innerHTML = '';
+    // Check if there is any data
+    if (snapshot.exists()) {
+        // Iterate through each child
+        snapshot.forEach((childSnapshot) => {
+            const data = childSnapshot.val();
+            // Handle each case by creating a new tricycle div
+            if ($('#place').value === data.destination) {
+                const tricycleDiv = createTricycleDiv(data);
+                tricycleContainer.appendChild(tricycleDiv);
+            }
+        });
+    } else {
+        console.log("No data available");
+    }
+}
+
+// Listen for changes in the Firebase Realtime Database under the "Route" path
+onValue(routeRef, (snapshot) => {
+    // Update HTML content based on the data
+    updateDestinationInfo(snapshot);
+});
+
+
+       
+    </script>
+    
+</body>
+</html>
+
+  <!-- 
+
+Bagay -30
+Bakhawan -30
+Bateria -45
+Bitoon -45
+Calape -35
+Dalingding -55
+Lanao -30
+Malbago -45
+Malingin -30
+Maya -20
+Pajo -25
+Paypay -30
+Talisay -30
+Tapilon -15
+Tinubdan -30
+Tominjao -45
+         -->

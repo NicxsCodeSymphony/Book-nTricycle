@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+</head>
+<body>
+
+    <div class="container">
+        <div class="login-heading">
+            <span>Welcome to</span>
+            <h2>book'n tricycle</h2>
+        </div>
+
+        <div class="image">
+            <img src="" alt="">
+        </div>
+
+        <div class="input-container" id="loginForm">
+            <form action="login.html" id="loginForm">
+                <input type="email" placeholder="Enter Email" required id="email">
+                <input type="password" placeholder="Enter password" required id="password">
+                <input type="submit" value="Login" id="cta">
+            </form>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+
+    <script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.7.2/firebase-auth.js";
+
+const firebaseConfig = {
+    // Your Firebase config here
+};
+
+const app = initializeApp(firebaseConfig);
+
+const loginForm = document.getElementById('loginForm');
+
+loginForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+
+    signInWithEmailAndPassword(getAuth(app), email, password)
+        .then(() => {
+            alert("Login successful");
+            window.location.href = "home.html";
+        })
+        .catch((error) => {
+            alert("Login failed: " + error.message);
+        });
+});
+
+    </script>
+
+
+
+</body>
+</html>
