@@ -1,0 +1,129 @@
+.heading{
+    display: flex;
+    justify-content: space-around;
+    height: 10vh;
+    align-items: center;
+    background: linear-gradient(to right, #527ef1, #1255fb);
+    padding-top: 2vh;
+    color: #fff;
+}
+
+.heading h1{
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.home{
+    background: #051747;
+    height: 100vh;
+    font-weight: 400;
+    color: #fff;
+}
+
+.home-container{
+    padding: 10px;
+}
+
+.location{
+    background: #0e2767;
+    height: 30vh;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.location p{
+    margin-bottom: 25px;
+}
+
+.locationInput{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+.locationInput label{
+    font-size: 12px;
+    color: #e4dede;
+}
+
+.locationInput input{
+    border: none;
+    border-bottom: 1px #817979 solid;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
+    width: 85%;
+}
+
+.date{
+    background: #0e2767;
+    height: 10vh;
+    padding: 5px;
+    margin-top: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.date input, input[type="time"]{
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-size: 15px;
+}
+
+.passengerCount{
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-gap: 10px;
+    height: 10vh;
+    margin-top: 10px;
+}
+
+.passengerCount > div{
+    background: #0e2767;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+    justify-content: space-between;
+}
+
+select{
+    width: 20%;
+    background: #0e2767;
+    color: #fff;
+    border:none;
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.ListOfTricycle{
+    border-radius: 5px;
+    background: #0e2767;
+    height: 20vh;
+    margin-top: 15px;
+}
+
+.btnContainer{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.proceedbtn{
+    background: #0e2767;
+    color: #fff;
+    border: none;
+    padding:12px 25%;
+    border-radius: 5px;
+}
+
+.label{
+    font-size: 12px;
+}

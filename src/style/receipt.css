@@ -1,0 +1,60 @@
+.main-body{
+    height: 90vh;
+    padding: 0 20px; 
+}
+
+.company-name{
+    margin-top: 30px;
+}
+
+
+.heading span, p{
+    color: #000;
+    opacity: 0.5;
+    font-size: 12px;    
+}
+
+.design{
+    margin-top: 40px;
+}
+
+.label{
+    position: relative;
+    bottom: 4px;
+}
+
+.design h4{
+    font-weight: 200;
+}
+
+
+
+.bold{
+    font-weight: 900;
+}
+
+.information{
+    text-align: left;
+    margin-top: 20px;
+    padding: 0 29px;
+    height: 19vh;
+}
+
+
+.information p{
+    opacity:0.8;
+}
+
+.information span{
+    float: right;
+    text-align: left;
+    opacity:0.8;
+}
+
+.description, .description span{
+    font-size: 15px;
+    opacity: 1;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+

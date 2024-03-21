@@ -1,0 +1,27 @@
+.payment{
+    padding: 20px 30px;
+}
+
+.paymentMethod{
+    background: #0e2767;
+    height: 25vh;
+    margin-top: 15px;
+    border-radius: 15px;
+}
+
+.inputContainer{
+    margin-top: 40px;
+}
+
+.inputContainer label{
+    font-size: 15px;
+}
+
+.inputContainer input{
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    border-bottom: 1px #c0c0c0 solid;
+    font-size: 15px;
+}

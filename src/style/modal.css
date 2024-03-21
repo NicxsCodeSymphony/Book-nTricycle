@@ -1,0 +1,38 @@
+.modalBackground{
+    position: fixed !important;
+    top: 0;
+    height: 200vh;
+}
+
+
+.place-wrapper{
+    height: 80%;
+    width: 100%;
+    background: #527ef1;
+    position: fixed;
+    bottom: 0;
+    padding: 10px 15px;
+}
+
+.place-wrapper h1{
+    font-size: 25px;
+}
+
+.place-container{
+    margin-top: 20px;
+}
+
+.select-place{
+    border: 1px #000 solid;
+    height: 8vh;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.select-place p{
+    color: #fff;
+}
